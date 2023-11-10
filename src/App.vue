@@ -1,11 +1,9 @@
 <template>
-    <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum incidunt repudiandae suscipit, asperiores sapiente
-        eos atque nobis fugiat aperiam accusamus quas eligendi libero dignissimos quae. Ducimus nisi corporis magni
-        dolorum.
-    </div>
+    <TaskBoard />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TaskBoard from './components/TaskBoard.vue';
+</script>
 
 <style scoped></style>
