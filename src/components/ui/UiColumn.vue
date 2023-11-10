@@ -25,7 +25,7 @@ const props = defineProps<{
     display: flex;
     flex-direction: column;
     gap: 8px;
-    max-width: var(--column-width);
+    min-width: var(--column-width);
 }
 
 .column__header {
