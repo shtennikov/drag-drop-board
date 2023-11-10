@@ -1,0 +1,42 @@
+<template>
+    <div v-for="column in props.columns" :key="column.id" class="column">
+        <div class="column__header">
+            <span class="column__title">
+                {{ column.title }}
+            </span>
+            <UiDragIcon class="column__drag-icon" />
+        </div>
+
+        <slot :tasks="column.tasks" />
+    </div>
+</template>
+
+<script setup lang="ts">
+import type { Column } from '@/types';
+import UiDragIcon from './UiDragIcon.vue';
+
+const props = defineProps<{
+    columns: Column[];
+}>();
+</script>
+
+<style scoped>
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: var(--column-width);
+}
+
+.column__header {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.column__drag-icon {
+    position: absolute;
+    right: 0;
+}
+</style>
