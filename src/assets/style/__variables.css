@@ -1,0 +1,14 @@
+:root {
+    --main-background: #fff;
+    --secondary-background: #f7f7f7;
+
+    --column-width: 256px;
+
+    /* Fonts */
+    --font-size: 12px;
+    --font-size-title: 14px;
+    --font-regular: 400;
+    --font-bold: 500;
+    --line-height: 20px;
+    --font-family: 'Poppins', sans-serif;
+}
