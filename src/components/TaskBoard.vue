@@ -1,19 +1,20 @@
 <template>
     <div class="board">
-        <UiColumn v-slot="{ tasks }" :columns="boardColumns">
-            <UiTaskItem v-for="task in tasks" :key="task.id" :task="task" />
+        <UiColumn v-slot="{ task }" :columns="boardColumns">
+            <UiTaskItem :key="task.id" :task="task" />
         </UiColumn>
     </div>
 </template>
 
 <script setup lang="ts">
+import { ref, type Ref } from 'vue';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import mockData from '@/mockData';
 import type { Column } from '@/types';
 import UiColumn from './ui/UiColumn.vue';
 import UiTaskItem from './ui/UiTaskItem.vue';
 
-const boardColumns: Column[] = mockData;
+const boardColumns: Ref<Column[]> = ref(mockData);
 </script>
 
 <style scoped>
@@ -22,7 +23,7 @@ const boardColumns: Column[] = mockData;
     align-items: flex-start;
     gap: 18px;
     padding: 6px 18px;
-    overflow: auto;
+    overflow-x: auto;
     background-color: var(--secondary-background, #f7f7f7);
 }
 
