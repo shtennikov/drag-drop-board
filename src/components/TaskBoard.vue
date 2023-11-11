@@ -57,4 +57,17 @@ const isAltPressed = useKeyModifier('Alt');
     background-color: #959ba36e;
     border-radius: 6px;
 }
+
+/* drag and drop styles */
+/* .sortable-chosen {
+
+}
+
+.sortable-drag {
+
+} */
+
+.sortable-ghost.task_item {
+    background-color: var(--secondary-accent);
+}
 </style>

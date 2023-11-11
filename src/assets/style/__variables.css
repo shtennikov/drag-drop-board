@@ -1,6 +1,8 @@
 :root {
     --main-background: #fff;
     --secondary-background: #f7f7f7;
+    --main-accent: #6e6af0;
+    --secondary-accent: #eef1ff;
 
     --column-width: 256px;
 
