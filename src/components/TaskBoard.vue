@@ -4,7 +4,7 @@
             <UiColumn :column="column">
                 <draggable
                     v-model="column.tasks"
-                    group="tasks"
+                    :group="{ name: 'tasks', pull: isAltPressed ? 'clone' : true }"
                     item-key="id"
                     handle=".drag_icon"
                     :animation="180"
@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
 import draggable from 'vuedraggable';
+import { useKeyModifier } from '@vueuse/core';
 import { ref, type Ref } from 'vue';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import mockData from '@/mockData';
@@ -29,6 +30,7 @@ import UiColumn from './ui/UiColumn.vue';
 import UiTaskItem from './ui/UiTaskItem.vue';
 
 const boardColumns: Ref<Column[]> = ref(mockData);
+const isAltPressed = useKeyModifier('Alt');
 </script>
 
 <style scoped>
