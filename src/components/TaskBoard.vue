@@ -1,12 +1,22 @@
 <template>
-    <div class="board">
-        <UiColumn v-slot="{ task }" :columns="boardColumns">
-            <UiTaskItem :key="task.id" :task="task" />
-        </UiColumn>
-    </div>
+    <draggable
+        v-model="boardColumns"
+        group="columns"
+        item-key="id"
+        class="board"
+        handle=".column__drag-icon"
+        :animation="180"
+    >
+        <template #item="{ element: column }: { element: Column }">
+            <UiColumn v-slot="{ task }" :column="column">
+                <UiTaskItem :key="task.id" :task="task" />
+            </UiColumn>
+        </template>
+    </draggable>
 </template>
 
 <script setup lang="ts">
+import draggable from 'vuedraggable';
 import { ref, type Ref } from 'vue';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import mockData from '@/mockData';

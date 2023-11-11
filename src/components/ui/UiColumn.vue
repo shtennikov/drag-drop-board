@@ -1,5 +1,5 @@
 <template>
-    <div v-for="column in columns" :key="column.id" class="column">
+    <div class="column">
         <div class="column__header">
             <span class="column__title">
                 {{ column.title }}
@@ -16,7 +16,7 @@ import type { Column } from '@/types';
 import UiDragIcon from './UiDragIcon.vue';
 
 defineProps<{
-    columns: Column[];
+    column: Column;
 }>();
 </script>
 
