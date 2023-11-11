@@ -7,7 +7,7 @@
             <UiDragIcon class="column__drag-icon" />
         </div>
 
-        <slot v-for="task in column.tasks" :task="task" />
+        <slot />
     </div>
 </template>
 
