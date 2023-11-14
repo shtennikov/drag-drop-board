@@ -66,7 +66,7 @@ function addTask(value: string, tasks: Task[]): void {
 }
 
 .board::-webkit-scrollbar-thumb {
-    background-color: #959ba36e;
+    background-color: var(--main-label-text, #959ba3);
     border-radius: 6px;
 }
 
