@@ -15,6 +15,7 @@ const props = defineProps<{
 </script>
 
 <style scoped>
+/* TODO стили когда монго контента */
 .task_item {
     display: flex;
 

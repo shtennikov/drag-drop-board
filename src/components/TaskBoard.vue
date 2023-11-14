@@ -7,13 +7,15 @@
                     :group="{ name: 'tasks', pull: isAltPressed ? 'clone' : true }"
                     item-key="id"
                     handle=".drag_icon"
-                    :animation="180"
+                    :animation="150"
                     :style="{ display: 'flex', gap: '8px', 'flex-direction': 'column' }"
                 >
                     <template #item="{ element: task }: { element: Task }">
                         <UiTaskItem :task="task" />
                     </template>
                 </draggable>
+
+                <AddTask @add="addTask($event, column.tasks)" />
             </UiColumn>
         </template>
     </draggable>
@@ -21,16 +23,26 @@
 
 <script setup lang="ts">
 import draggable from 'vuedraggable';
-import { useKeyModifier } from '@vueuse/core';
+import { nanoid } from 'nanoid';
 import { ref, type Ref } from 'vue';
+import { useKeyModifier } from '@vueuse/core';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import mockData from '@/mockData';
 import type { Column, Task } from '@/types';
 import UiColumn from './ui/UiColumn.vue';
 import UiTaskItem from './ui/UiTaskItem.vue';
+import AddTask from './AddTask.vue';
 
 const boardColumns: Ref<Column[]> = ref(mockData);
 const isAltPressed = useKeyModifier('Alt');
+
+function addTask(value: string, tasks: Task[]): void {
+    tasks.push({
+        id: nanoid(),
+        title: value,
+        createdAt: new Date(),
+    });
+}
 </script>
 
 <style scoped>
